@@ -18,6 +18,8 @@ from cride.users.models import User, Profile
 # Tasks
 from cride.taskapp.tasks import send_confirmation_email
 
+import jwt 
+
 
 class UserModelSerializer(serializers.ModelSerializer):
     """Modelo de Usuario"""

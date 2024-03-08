@@ -48,11 +48,11 @@ def send_confirmation_email(user_pk):
         msg.attach_alternative(content, "text/html")
         msg.send()
         
-@periodic_task(name='disable_finished_rides', run_every=timedelta(seconds=5))
+@periodic_task(name='disable_finished_rides', run_every=timedelta(days=3))
 def disable_finished_rides():
     """Deshabilitar la finalizacion de viaje."""
     now = timezone.now()
-    offset = now + timedelta(seconds=5)
+    offset = now + timedelta(days=5)
 
     # Update rides that have already finished
     rides = Ride.objects.filter(
